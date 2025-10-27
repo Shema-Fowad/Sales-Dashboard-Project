@@ -1,15 +1,15 @@
 /* =========================================================
    SALES DASHBOARD PROJECT — SQL ANALYSIS
-   Dataset: Sales Orders (2014–2017)
+   Dataset: Sales Orders
    Analyst: Shema Fowad
    ========================================================= */
 
-/* 🔍 1. View first few records of the dataset */
+/* 1. View first few records of the dataset */
 SELECT * FROM sales_data
 LIMIT 10;
 
 
-/* 🧮 2. What is the total sales, profit, and quantity sold? */
+/* 2. What is the total sales, profit, and quantity sold? */
 SELECT 
     ROUND(SUM(Sales), 2) AS total_sales,
     ROUND(SUM(Profit), 2) AS total_profit,
@@ -17,7 +17,7 @@ SELECT
 FROM sales_data;
 
 
-/* 💰 3. Which region generated the highest revenue? */
+/* 3. Which region generated the highest revenue? */
 SELECT 
     Region,
     ROUND(SUM(Sales), 2) AS total_sales
@@ -26,7 +26,7 @@ GROUP BY Region
 ORDER BY total_sales DESC;
 
 
-/* 🌍 4. Which state has the highest profit margin? */
+/* 4. Which state has the highest profit margin? */
 SELECT 
     State,
     ROUND(SUM(Profit), 2) AS total_profit
@@ -36,7 +36,7 @@ ORDER BY total_profit DESC
 LIMIT 10;
 
 
-/* 🏢 5. Which customer segment contributes most to sales? */
+/* 5. Which customer segment contributes most to sales? */
 SELECT 
     Segment,
     ROUND(SUM(Sales), 2) AS total_sales,
@@ -46,7 +46,7 @@ GROUP BY Segment
 ORDER BY total_sales DESC;
 
 
-/* 🧠 6. What are the top 10 products by total revenue? */
+/* 6. What are the top 10 products by total revenue? */
 SELECT 
     "Product Name",
     ROUND(SUM(Sales), 2) AS total_revenue
@@ -56,7 +56,7 @@ ORDER BY total_revenue DESC
 LIMIT 10;
 
 
-/* 📆 7. Monthly sales trend */
+/* 7. Monthly sales trend */
 SELECT 
     DATE_TRUNC('month', TO_DATE("Order Date", 'MM/DD/YYYY')) AS month,
     ROUND(SUM(Sales), 2) AS monthly_sales
@@ -65,7 +65,7 @@ GROUP BY month
 ORDER BY month;
 
 
-/* 📦 8. Category-wise performance overview */
+/* 8. Category-wise performance overview */
 SELECT 
     Category,
     ROUND(SUM(Sales), 2) AS total_sales,
@@ -76,7 +76,7 @@ GROUP BY Category
 ORDER BY total_sales DESC;
 
 
-/* 🚚 9. Impact of shipping mode on profit */
+/* 9. Impact of shipping mode on profit */
 SELECT 
     "Ship Mode",
     ROUND(SUM(Sales), 2) AS total_sales,
@@ -86,7 +86,7 @@ GROUP BY "Ship Mode"
 ORDER BY total_profit DESC;
 
 
-/* 💡 10. Identify loss-making products */
+/* 10. Identify loss-making products */
 SELECT 
     "Product Name",
     ROUND(SUM(Profit), 2) AS total_profit
