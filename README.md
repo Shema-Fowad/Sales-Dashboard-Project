@@ -17,8 +17,8 @@ It combines **SQL for data analysis** and **Power BI for dashboard visualization
 ### Project Structure
 | Folder | Description |
 |--------|--------------|
-| **SQL/** | Contains all SQL queries and questions used for analysis |
-| **Dashboard/** | Power BI dashboard screenshots |
+| **SQL_QUERIES.SQL** | Contains all SQL queries and questions used for analysis |
+| **Dashboard** | Power BI dashboard screenshots |
 | **README.md** | Project overview and documentation |
 
 ---
